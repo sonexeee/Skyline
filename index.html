@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern Stunning UI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      line-height: 1.6;
+      background: #f4f4f9;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+    header {
+      background: #111;
+      color: #fff;
+      padding: 10px 0;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    header .logo h1 a {
+      color: #fff;
+      font-size: 1.8rem;
+    }
+
+    header nav ul {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    header nav ul li {
+      margin: 0 15px;
+    }
+
+    header nav ul li a {
+      color: #fff;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    header nav ul li a:hover {
+      color: #00bcd4;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(135deg, #00c6ff, #0072ff);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .hero-content h2 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+
+    .hero-content p {
+      font-size: 1.5rem;
+    }
+
+    .cta-btn {
+      background: #00bcd4;
+      color: #fff;
+      padding: 10px 25px;
+      border-radius: 25px;
+      font-size: 1rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-top: 20px;
+      display: inline-block;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .cta-btn:hover {
+      background: #0097a7;
+      transform: translateY(-3px);
+    }
+
+    /* Features Section */
+    .features {
+      padding: 80px 20px;
+      text-align: center;
+      background: #f4f4f9;
+    }
+
+    .features h2 {
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .feature-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Services Section */
+    .services {
+      padding: 80px 20px;
+      text-align: center;
+      background: linear-gradient(135deg, #0072ff, #00c6ff);
+      color: #fff;
+    }
+
+    .services h2 {
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .service-card {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 10px;
+      padding: 20px;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      background: #111;
+      color: #fff;
+      padding: 20px;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .hero-content h2 {
+        font-size: 2.5rem;
+      }
+
+      .hero-content p {
+        font-size: 1.2rem;
+      }
+
+      header nav ul {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      header nav ul li {
+        margin: 10px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="logo">
+        <h1><a href="#">ModernUI</a></h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h2>Welcome to Modern UI</h2>
+      <p>Experience sleek and innovative web design.</p>
+      <a href="#features" class="cta-btn">Discover More</a>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features" id="features">
+    <h2>Key Features</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h3>Responsive Design</h3>
+        <p>Our layouts adapt perfectly to any screen size.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Sleek Animations</h3>
+        <p>Engage your audience with fluid, eye-catching animations.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Custom Components</h3>
+        <p>Personalize your site with our easy-to-use tools.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services" id="services">
+    <h2>Our Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Web Design</h3>
+        <p>Creating beautiful and user-friendly designs.</p>
+      </div>
+      <div class="service-card">
+        <h3>Development</h3>
+        <p>High-performance and scalable web solutions.</p>
+      </div>
+      <div class="service-card">
+        <h3>Support</h3>
+        <p>24/7 support to keep your site running smoothly.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <p>&copy; 2024 ModernUI. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>
