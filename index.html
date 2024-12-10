@@ -3,63 +3,57 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Modern Stunning UI</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+  <title>Modern Website UI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    /* General Styles */
+    /* Global Styles */
     body {
       font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
+      background-color: #f4f4f9;
       color: #333;
-      line-height: 1.6;
-      background: #f4f4f9;
+      box-sizing: border-box;
+      transition: background-color 0.3s ease;
     }
 
     a {
       text-decoration: none;
     }
 
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    /* Header */
+    /* Header Styles */
     header {
-      background: #111;
-      color: #fff;
-      padding: 10px 0;
+      background-color: #111;
+      color: white;
+      padding: 20px 0;
       position: fixed;
-      top: 0;
       width: 100%;
-      z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
 
-    header .logo h1 a {
-      color: #fff;
-      font-size: 1.8rem;
+    header .logo h1 {
+      margin-left: 20px;
+      font-size: 2rem;
+      font-weight: 600;
     }
 
     header nav ul {
       display: flex;
       justify-content: flex-end;
+      margin-right: 20px;
     }
 
     header nav ul li {
-      margin: 0 15px;
+      margin-left: 30px;
     }
 
     header nav ul li a {
-      color: #fff;
+      color: white;
+      font-size: 1.1rem;
       font-weight: 500;
+      letter-spacing: 0.5px;
       transition: color 0.3s ease;
     }
 
@@ -70,46 +64,66 @@
     /* Hero Section */
     .hero {
       height: 100vh;
-      background: linear-gradient(135deg, #00c6ff, #0072ff);
-      color: #fff;
       display: flex;
       justify-content: center;
       align-items: center;
       text-align: center;
+      background: linear-gradient(135deg, #00c6ff, #0072ff);
+      color: white;
+      padding-top: 80px;
+      box-sizing: border-box;
     }
 
-    .hero-content h2 {
-      font-size: 3rem;
-      margin-bottom: 15px;
+    .hero h1 {
+      font-size: 4rem;
+      margin: 0;
+      font-weight: 700;
     }
 
-    .hero-content p {
+    .hero p {
       font-size: 1.5rem;
+      opacity: 0.8;
+      margin-top: 15px;
     }
 
     .cta-btn {
-      background: #00bcd4;
-      color: #fff;
-      padding: 10px 25px;
+      background-color: #00bcd4;
+      color: white;
+      padding: 12px 30px;
       border-radius: 25px;
       font-size: 1rem;
-      text-transform: uppercase;
-      font-weight: 700;
       margin-top: 20px;
-      display: inline-block;
-      transition: background 0.3s ease, transform 0.3s ease;
+      font-weight: 600;
+      transition: all 0.3s ease;
     }
 
     .cta-btn:hover {
-      background: #0097a7;
-      transform: translateY(-3px);
+      background-color: #0097a7;
+      transform: translateY(-5px);
     }
 
     /* Features Section */
     .features {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       padding: 80px 20px;
+      background-color: #f4f4f9;
       text-align: center;
-      background: #f4f4f9;
+    }
+
+    .features .feature-card {
+      background-color: white;
+      padding: 30px;
+      margin: 0 20px;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .features .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
     }
 
     .features h2 {
@@ -117,147 +131,85 @@
       margin-bottom: 40px;
     }
 
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-    }
-
-    .feature-card {
-      background: #fff;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .feature-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    }
-
-    /* Services Section */
-    .services {
-      padding: 80px 20px;
-      text-align: center;
-      background: linear-gradient(135deg, #0072ff, #00c6ff);
-      color: #fff;
-    }
-
-    .services h2 {
-      font-size: 2.5rem;
-      margin-bottom: 40px;
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-    }
-
-    .service-card {
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: 10px;
-      padding: 20px;
-      transition: transform 0.3s ease, background 0.3s ease;
-    }
-
-    .service-card:hover {
-      transform: translateY(-5px);
-      background: rgba(255, 255, 255, 0.2);
-    }
-
-    /* Footer */
+    /* Footer Section */
     footer {
       text-align: center;
-      background: #111;
-      color: #fff;
+      background-color: #111;
+      color: white;
       padding: 20px;
     }
 
     /* Responsive Styles */
     @media (max-width: 768px) {
-      .hero-content h2 {
-        font-size: 2.5rem;
-      }
-
-      .hero-content p {
-        font-size: 1.2rem;
-      }
-
       header nav ul {
         flex-direction: column;
         text-align: center;
       }
 
-      header nav ul li {
-        margin: 10px 0;
+      .hero h1 {
+        font-size: 3rem;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+      }
+
+      .cta-btn {
+        padding: 10px 20px;
+      }
+
+      .features {
+        flex-direction: column;
+        padding: 40px 20px;
+      }
+
+      .features .feature-card {
+        margin-bottom: 30px;
       }
     }
   </style>
 </head>
 <body>
+
   <!-- Header -->
   <header>
-    <div class="container">
-      <div class="logo">
-        <h1><a href="#">ModernUI</a></h1>
-      </div>
-      <nav>
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#features">Features</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
+    <div class="logo">
+      <h1>ModernUI</h1>
     </div>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
   <!-- Hero Section -->
   <section class="hero" id="home">
-    <div class="hero-content">
-      <h2>Welcome to Modern UI</h2>
-      <p>Experience sleek and innovative web design.</p>
-      <a href="#features" class="cta-btn">Discover More</a>
+    <div>
+      <h1>Welcome to Modern UI</h1>
+      <p>Your go-to solution for sleek and simple web design.</p>
+      <a href="#features" class="cta-btn">Explore Features</a>
     </div>
   </section>
 
   <!-- Features Section -->
   <section class="features" id="features">
-    <h2>Key Features</h2>
-    <div class="feature-grid">
+    <div>
+      <h2>Our Features</h2>
       <div class="feature-card">
         <h3>Responsive Design</h3>
-        <p>Our layouts adapt perfectly to any screen size.</p>
+        <p>Optimized for all devices with adaptive layouts.</p>
       </div>
       <div class="feature-card">
-        <h3>Sleek Animations</h3>
-        <p>Engage your audience with fluid, eye-catching animations.</p>
+        <h3>Modern Animations</h3>
+        <p>Smooth, visually pleasing transitions to engage users.</p>
       </div>
       <div class="feature-card">
-        <h3>Custom Components</h3>
-        <p>Personalize your site with our easy-to-use tools.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services Section -->
-  <section class="services" id="services">
-    <h2>Our Services</h2>
-    <div class="services-grid">
-      <div class="service-card">
-        <h3>Web Design</h3>
-        <p>Creating beautiful and user-friendly designs.</p>
-      </div>
-      <div class="service-card">
-        <h3>Development</h3>
-        <p>High-performance and scalable web solutions.</p>
-      </div>
-      <div class="service-card">
-        <h3>Support</h3>
-        <p>24/7 support to keep your site running smoothly.</p>
+        <h3>Easy to Customize</h3>
+        <p>Tailor every aspect of the UI to your needs.</p>
       </div>
     </div>
   </section>
@@ -266,5 +218,6 @@
   <footer id="contact">
     <p>&copy; 2024 ModernUI. All Rights Reserved.</p>
   </footer>
+
 </body>
 </html>
