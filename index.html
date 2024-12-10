@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Modern Website UI</title>
+  <title>Skyline | Help in War</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     /* Global Styles */
@@ -11,8 +11,8 @@
       font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f4f4f9;
-      color: #333;
+      background: #1e1e1e;
+      color: white;
       box-sizing: border-box;
       transition: background-color 0.3s ease;
     }
@@ -21,28 +21,35 @@
       text-decoration: none;
     }
 
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     /* Header Styles */
     header {
-      background-color: #111;
+      background: linear-gradient(45deg, #ff6f00, #d32f2f);
       color: white;
-      padding: 20px 0;
+      padding: 20px 30px;
       position: fixed;
       width: 100%;
       top: 0;
-      z-index: 10;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s ease;
     }
 
     header .logo h1 {
-      margin-left: 20px;
-      font-size: 2rem;
-      font-weight: 600;
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: 1px;
     }
 
     header nav ul {
       display: flex;
       justify-content: flex-end;
-      margin-right: 20px;
+      list-style: none;
     }
 
     header nav ul li {
@@ -52,13 +59,15 @@
     header nav ul li a {
       color: white;
       font-size: 1.1rem;
-      font-weight: 500;
+      font-weight: 600;
+      text-transform: uppercase;
       letter-spacing: 0.5px;
-      transition: color 0.3s ease;
+      transition: all 0.3s ease;
     }
 
     header nav ul li a:hover {
-      color: #00bcd4;
+      color: #ffeb3b;
+      transform: translateY(-3px);
     }
 
     /* Hero Section */
@@ -68,82 +77,108 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      background: linear-gradient(135deg, #00c6ff, #0072ff);
-      color: white;
-      padding-top: 80px;
-      box-sizing: border-box;
+      background: url('https://via.placeholder.com/1500x900') no-repeat center center/cover;
+      position: relative;
+      padding-top: 100px;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
     }
 
     .hero h1 {
       font-size: 4rem;
-      margin: 0;
       font-weight: 700;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
     }
 
     .hero p {
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       opacity: 0.8;
-      margin-top: 15px;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
     }
 
     .cta-btn {
-      background-color: #00bcd4;
-      color: white;
-      padding: 12px 30px;
-      border-radius: 25px;
-      font-size: 1rem;
-      margin-top: 20px;
+      background-color: #ffeb3b;
+      color: #111;
+      padding: 14px 40px;
+      border-radius: 30px;
+      font-size: 1.2rem;
       font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
       transition: all 0.3s ease;
     }
 
     .cta-btn:hover {
-      background-color: #0097a7;
+      background-color: #ff9800;
       transform: translateY(-5px);
     }
 
     /* Features Section */
     .features {
-      display: flex;
-      justify-content: center;
-      align-items: center;
       padding: 80px 20px;
-      background-color: #f4f4f9;
+      background: #333;
       text-align: center;
     }
 
+    .features h2 {
+      font-size: 2.8rem;
+      font-weight: 600;
+      margin-bottom: 50px;
+      color: #ffeb3b;
+    }
+
     .features .feature-card {
-      background-color: white;
-      padding: 30px;
-      margin: 0 20px;
-      border-radius: 10px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      background-color: #444;
+      padding: 40px;
+      margin: 20px;
+      border-radius: 15px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .features .feature-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
     }
 
-    .features h2 {
-      font-size: 2.5rem;
-      margin-bottom: 40px;
+    .features .feature-card h3 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+
+    .features .feature-card p {
+      font-size: 1.1rem;
+      opacity: 0.7;
     }
 
     /* Footer Section */
     footer {
-      text-align: center;
       background-color: #111;
       color: white;
+      text-align: center;
       padding: 20px;
+      font-size: 1rem;
     }
 
     /* Responsive Styles */
     @media (max-width: 768px) {
       header nav ul {
         flex-direction: column;
-        text-align: center;
+        align-items: center;
       }
 
       .hero h1 {
@@ -151,16 +186,11 @@
       }
 
       .hero p {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
       }
 
       .cta-btn {
-        padding: 10px 20px;
-      }
-
-      .features {
-        flex-direction: column;
-        padding: 40px 20px;
+        padding: 12px 30px;
       }
 
       .features .feature-card {
@@ -174,7 +204,7 @@
   <!-- Header -->
   <header>
     <div class="logo">
-      <h1>ModernUI</h1>
+      <h1>Skyline</h1>
     </div>
     <nav>
       <ul>
@@ -188,35 +218,34 @@
 
   <!-- Hero Section -->
   <section class="hero" id="home">
-    <div>
-      <h1>Welcome to Modern UI</h1>
-      <p>Your go-to solution for sleek and simple web design.</p>
-      <a href="#features" class="cta-btn">Explore Features</a>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Helping in War</h1>
+      <p>Skyline is dedicated to providing resources and assistance in times of conflict.</p>
+      <a href="#features" class="cta-btn">Learn More</a>
     </div>
   </section>
 
   <!-- Features Section -->
   <section class="features" id="features">
-    <div>
-      <h2>Our Features</h2>
-      <div class="feature-card">
-        <h3>Responsive Design</h3>
-        <p>Optimized for all devices with adaptive layouts.</p>
-      </div>
-      <div class="feature-card">
-        <h3>Modern Animations</h3>
-        <p>Smooth, visually pleasing transitions to engage users.</p>
-      </div>
-      <div class="feature-card">
-        <h3>Easy to Customize</h3>
-        <p>Tailor every aspect of the UI to your needs.</p>
-      </div>
+    <h2>Our Mission</h2>
+    <div class="feature-card">
+      <h3>Support Troops</h3>
+      <p>We provide vital resources to soldiers on the field, enhancing their capability and well-being.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Civilian Aid</h3>
+      <p>Offering aid to civilians affected by conflict, ensuring their safety and access to basic needs.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Rebuilding Efforts</h3>
+      <p>We assist in rebuilding communities and infrastructure damaged during wars, aiding recovery.</p>
     </div>
   </section>
 
   <!-- Footer -->
   <footer id="contact">
-    <p>&copy; 2024 ModernUI. All Rights Reserved.</p>
+    <p>&copy; 2024 Skyline. All Rights Reserved.</p>
   </footer>
 
 </body>
