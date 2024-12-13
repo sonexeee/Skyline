@@ -64,20 +64,21 @@
       width: 100%;
       height: 100%;
       background: rgba(0, 0, 0, 0.5);
-      display: none;
+      display: flex;
       justify-content: center;
       align-items: center;
       z-index: 1000;
-      opacity: 1;
-      transition: opacity 1s ease-out;
+      opacity: 0;
+      visibility: hidden; /* Initially hidden */
+      transition: opacity 1s ease-out, visibility 1s ease-out;
     }
 
     .loading-spinner {
       border: 10px solid #f3f3f3;
       border-top: 10px solid #4caf50;
       border-radius: 50%;
-      width: 50px;
-      height: 50px;
+      width: 60px;
+      height: 60px;
       animation: spin 2s linear infinite;
     }
 
@@ -160,25 +161,37 @@
       padding: 5px;
       font-size: 1rem;
     }
+
+    /* Title at Center */
+    #title {
+      text-align: center;
+      margin: 30px;
+    }
+
+    #title img {
+      width: 200px;
+      height: auto;
+    }
   </style>
 </head>
 <body>
-
-<!-- Home Page UI (Initial State) -->
-<div class="home-page" id="home-page">
-  <h1>Welcome to SKYLINE</h1>
-  <p>Your emergency services are just a click away.</p>
-  <button class="button" id="useServiceBtn">Use Our Service</button>
-</div>
 
 <!-- Loading Animation (Initially Hidden) -->
 <div id="loading">
   <div class="loading-spinner"></div>
 </div>
 
+<!-- Home Page UI -->
+<div class="home-page" id="home-page">
+  <h1>Welcome to SKYLINE</h1>
+  <p>Your emergency services are just a click away.</p>
+  <button class="button" id="useServiceBtn">Use Our Service</button>
+</div>
+
 <!-- Main Content (Initially Hidden) -->
 <div class="main-container" id="main-container">
-  <header>
+  <header id="title">
+    <img src="/path/to/your/logo.png" alt="SKYLINE Logo">
     <h1>SKYLINE</h1>
     <p>Quick and Reliable Emergency Services</p>
   </header>
@@ -237,52 +250,28 @@
     // Hide the home page content
     document.getElementById('home-page').style.display = 'none';
     // Show loading animation
-    document.getElementById('loading').style.display = 'flex';
+    document.getElementById('loading').style.visibility = 'visible';
+    document.getElementById('loading').style.opacity = '1';
 
     // Simulate a 3-second loading time
     setTimeout(function() {
       // Hide the loading animation
       document.getElementById('loading').style.opacity = '0';
+      document.getElementById('loading').style.visibility = 'hidden';
+      
       // Show main content
       setTimeout(function() {
         document.getElementById('main-container').style.display = 'flex';
-        document.getElementById('main-container').style.opacity = '1';
-      }, 1000);
-    }, 3000); // Simulate loading for 3 seconds
+      }, 500); // Delay to ensure the animation finishes
+    }, 3000); // 3-second delay for loading
   }
 
-  // Language Change Functionality
+  // Function for changing language (basic example)
   function changeLanguage() {
-    const lang = document.getElementById('language').value;
-    const texts = {
-      "en": {
-        "aboutHeading": "About SKYLINE",
-        "aboutText": "SKYLINE is designed to provide fast and reliable emergency services for people in need. Whether it's finding a hospital, locating a shelter, or sending an SOS alert, our platform ensures help is just a click away.",
-        "contactHeading": "Emergency Hotlines",
-        "contactText": "For immediate help, please contact the following:"
-      },
-      "vi": {
-        "aboutHeading": "Về SKYLINE",
-        "aboutText": "SKYLINE được thiết kế để cung cấp các dịch vụ khẩn cấp nhanh chóng và đáng tin cậy cho những người cần giúp đỡ. Cho dù đó là tìm bệnh viện, tìm nơi trú ẩn, hay gửi tín hiệu SOS, nền tảng của chúng tôi đảm bảo giúp đỡ chỉ với một cú nhấp chuột.",
-        "contactHeading": "Đường dây nóng khẩn cấp",
-        "contactText": "Để nhận sự giúp đỡ ngay lập tức, vui lòng liên hệ với các số sau:"
-      },
-      "es": {
-        "aboutHeading": "Sobre SKYLINE",
-        "aboutText": "SKYLINE está diseñado para proporcionar servicios de emergencia rápidos y confiables a las personas necesitadas. Ya sea para encontrar un hospital, localizar un refugio o enviar una alerta SOS, nuestra plataforma asegura que la ayuda esté a solo un clic de distancia.",
-        "contactHeading": "Líneas de emergencia",
-        "contactText": "Para recibir ayuda inmediata, comuníquese con los siguientes números:"
-      }
-    };
-
-    var selectedText = texts[lang];
-    document.getElementById("about-heading").textContent = selectedText.aboutHeading;
-    document.getElementById("about-text").textContent = selectedText.aboutText;
-    document.getElementById("contact-heading").textContent = selectedText.contactHeading;
-    document.getElementById("contact-text").textContent = selectedText.contactText;
+    const language = document.getElementById('language').value;
+    alert('Language changed to: ' + language);
   }
 </script>
 
 </body>
 </html>
-
