@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Skyline | Help in War</title>
+  <title>Skyline | Helping in War</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     /* Global Styles */
@@ -11,10 +11,10 @@
       margin: 0;
       padding: 0;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #1e1e1e, #2d2d2d);
-      color: #fff;
+      background: #f0f0f0;
+      color: #333;
       overflow-x: hidden;
-      animation: backgroundEffect 5s ease-in-out infinite;
+      height: 100%;
     }
     a {
       text-decoration: none;
@@ -25,74 +25,39 @@
       color: #ff4747;
     }
 
-    /* Entry Animation */
-    .entry-animation {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, #ff4747, #00ffc6);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      z-index: 9999;
-      animation: fadeOut 2s 3s forwards;
-    }
-    .entry-animation h1 {
-      font-size: 3rem;
-      color: #fff;
-    }
-    .entry-animation .loading-bar {
-      width: 200px;
-      height: 5px;
-      margin-top: 20px;
-      background: rgba(255, 255, 255, 0.2);
-      position: relative;
-      overflow: hidden;
-    }
-    .entry-animation .loading-bar::before {
-      content: '';
-      position: absolute;
-      width: 50px;
-      height: 5px;
-      background: #fff;
-      animation: loading 2s infinite;
-    }
-    @keyframes loading {
-      0% {
-        left: -50px;
-      }
-      100% {
-        left: 200px;
-      }
-    }
-    @keyframes fadeOut {
-      to {
-        opacity: 0;
-        visibility: hidden;
-      }
-    }
-
     /* Header */
     header {
       position: fixed;
       top: 0;
+      left: 0;
       width: 100%;
-      background: rgba(0, 0, 0, 0.9);
+      background: #fff;
       padding: 20px 50px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
       z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-      animation: fadeInHeader 2s ease-in-out forwards;
     }
-    header .logo {
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    .logo img {
+      height: 50px; /* Adjust based on your logo size */
+      margin-right: 10px;
+    }
+    .logo h1 {
       font-size: 2rem;
-      font-weight: bold;
-      color: #00ffc6;
+      font-weight: 700;
+      color: #333;
+      letter-spacing: 2px;
+    }
+    .logo p {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #999;
+      margin-top: 5px;
     }
     header nav ul {
       list-style: none;
@@ -104,210 +69,189 @@
       font-weight: 600;
     }
 
-    /* Hero Section with Parallax */
+    /* Hero Section (Homepage) */
     .hero {
       height: 100vh;
+      background: #00ffc6;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      background: url('https://via.placeholder.com/1920x1080') center/cover no-repeat;
-      background-attachment: fixed;
-      animation: expandCircle 2s ease-in-out forwards 3s;
-      clip-path: circle(0% at 50% 50%);
-      transition: transform 0.5s ease;
-      position: relative;
+      color: #fff;
     }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.3);
-      z-index: -1;
-    }
-    .hero h1 {
-      font-size: 4rem;
-      font-weight: 700;
+    .hero h2 {
+      font-size: 3rem;
       margin-bottom: 20px;
-      animation: slideIn 1.5s ease;
+      font-weight: 700;
     }
     .hero p {
       font-size: 1.5rem;
-      font-weight: 400;
-      margin-bottom: 40px;
-      animation: fadeIn 1.5s ease 0.5s forwards;
+      margin-bottom: 30px;
     }
     .hero .cta-btn {
-      padding: 15px 40px;
-      background: #00ffc6;
-      color: #1c1c1c;
+      background: #ff4747;
+      padding: 15px 30px;
+      color: #fff;
       font-size: 1.2rem;
-      font-weight: bold;
-      text-transform: uppercase;
-      border-radius: 30px;
-      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
-      transition: all 0.3s ease, transform 0.3s ease-in-out;
+      font-weight: 600;
+      border: none;
       cursor: pointer;
+      border-radius: 5px;
+      transition: transform 0.3s ease, background-color 0.3s ease;
     }
     .hero .cta-btn:hover {
-      background: #ff4747;
-      color: #fff;
-      transform: scale(1.1) rotate(10deg);
+      transform: scale(1.1);
+      background-color: #ff3333;
     }
 
     /* Features Section */
     .features {
       padding: 100px 50px;
-      background: #121212;
       text-align: center;
-      opacity: 0;
-      transform: translateX(-100%);
-      transition: opacity 1s, transform 1s;
-    }
-    .features.show {
-      opacity: 1;
-      transform: translateX(0);
+      background: #fff;
     }
     .features h2 {
       font-size: 2.5rem;
       margin-bottom: 30px;
       color: #00ffc6;
-      animation: fadeInLeft 1s ease;
     }
-    .features .cards {
+
+    .cards {
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
       gap: 30px;
+      margin-top: 50px;
     }
-    .features .card {
+
+    .card {
       width: 300px;
-      background: #1e1e1e;
+      height: 200px;
+      background: #f0f0f0;
       padding: 20px;
       border-radius: 15px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
     }
-    .features .card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
     }
-    .features .card h3 {
+    .card h3 {
       font-size: 1.5rem;
       margin-bottom: 15px;
-      color: #00ffc6;
     }
-    .features .card p {
+    .card p {
       font-size: 1rem;
       opacity: 0.8;
     }
 
-    /* Scroll Effects */
-    @keyframes fadeInLeft {
-      from {
-        transform: translateX(-100px);
-        opacity: 0;
-      }
-      to {
-        transform: translateX(0);
-        opacity: 1;
-      }
+    /* Sliding Open Effect */
+    .card-content {
+      position: absolute;
+      top: 0;
+      left: 100%;
+      width: 100%;
+      height: 100%;
+      background: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.5s ease;
     }
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
+    .card.open .card-content {
+      left: 0;
+      opacity: 1;
+      visibility: visible;
     }
-    @keyframes fadeInHeader {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
+
+    .card-content h3 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: #00ffc6;
     }
-    @keyframes backgroundEffect {
-      0% {
-        background: linear-gradient(135deg, #1e1e1e, #2d2d2d);
-      }
-      50% {
-        background: linear-gradient(135deg, #ff4747, #00ffc6);
-      }
-      100% {
-        background: linear-gradient(135deg, #1e1e1e, #2d2d2d);
-      }
+
+    .card-content p {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
     }
+
   </style>
 </head>
 <body>
-  <!-- Entry Animation -->
-  <div class="entry-animation">
-    <h1>Welcome to Skyline</h1>
-    <div class="loading-bar"></div>
-  </div>
 
-  <!-- Header -->
+  <!-- Header Section -->
   <header>
-    <div class="logo">Skyline</div>
+    <div class="logo">
+      <img src="path-to-your-logo.png" alt="Logo"> <!-- Replace with the path to your logo -->
+      <div>
+        <h1>Skyline</h1>
+        <p>Bring You Health Life</p>
+      </div>
+    </div>
     <nav>
       <ul>
         <li><a href="#">Home</a></li>
         <li><a href="#">About</a></li>
-        <li><a href="#">Features</a></li>
         <li><a href="#">Contact</a></li>
       </ul>
     </nav>
   </header>
 
   <!-- Hero Section -->
-  <section class="hero">
-    <h1>Empowering Communities During Crises</h1>
-    <p>Stay informed, connected, and supported in times of need.</p>
-    <button class="cta-btn">Learn More</button>
-  </section>
+  <div class="hero">
+    <div>
+      <h2>Helping in War</h2>
+      <p>We provide medical and humanitarian assistance where it is needed most.</p>
+      <button class="cta-btn">Learn More</button>
+    </div>
+  </div>
 
   <!-- Features Section -->
   <section class="features">
-    <h2>Our Features</h2>
+    <h2>Our Services</h2>
     <div class="cards">
       <div class="card">
-        <h3>Real-Time Alerts</h3>
-        <p>Stay informed with real-time updates during critical events.</p>
+        <h3>Medical Aid</h3>
+        <p>Providing medical supplies to those in need.</p>
+        <div class="card-content">
+          <h3>Medical Aid</h3>
+          <p>We deliver essential medical supplies to war zones.</p>
+        </div>
       </div>
       <div class="card">
-        <h3>Emergency Resources</h3>
-        <p>Find essential supplies and information during crises.</p>
+        <h3>Humanitarian Relief</h3>
+        <p>We help rebuild communities affected by conflict.</p>
+        <div class="card-content">
+          <h3>Humanitarian Relief</h3>
+          <p>We help restore life and infrastructure in conflict areas.</p>
+        </div>
       </div>
       <div class="card">
-        <h3>Community Support</h3>
-        <p>Connect with a network of people willing to help.</p>
+        <h3>Disaster Recovery</h3>
+        <p>Assisting in post-conflict recovery and rebuilding.</p>
+        <div class="card-content">
+          <h3>Disaster Recovery</h3>
+          <p>Helping nations rebuild after war and natural disasters.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <script>
-    // Scroll-based animation trigger
-    const featuresSection = document.querySelector('.features');
-
-    // Create an IntersectionObserver to trigger when the Features section is visible
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          featuresSection.classList.add('show'); // Add class to trigger animation
-          observer.disconnect();
-        }
+    // JS for expanding cards on click
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        card.classList.toggle('open');
       });
-    }, { threshold: 0.5 });
-
-    observer.observe(featuresSection);
+    });
   </script>
+
 </body>
 </html>
