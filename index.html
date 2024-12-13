@@ -191,7 +191,8 @@
 <!-- Main Content (Initially Hidden) -->
 <div class="main-container" id="main-container">
   <header id="title">
-    <img src="image (1).png" alt="SKYLINE Logo">
+    <!-- Replace with your GitHub raw URL for the image -->
+    <img src="https://github.com/sonexeee/Skyline/blob/main/image%20(1).png" alt="SKYLINE Logo">
     <h1>SKYLINE</h1>
     <p>Quick and Reliable Emergency Services</p>
   </header>
@@ -258,18 +259,27 @@
       // Hide the loading animation
       document.getElementById('loading').style.opacity = '0';
       document.getElementById('loading').style.visibility = 'hidden';
-      
-      // Show main content
-      setTimeout(function() {
-        document.getElementById('main-container').style.display = 'flex';
-      }, 500); // Delay to ensure the animation finishes
-    }, 3000); // 3-second delay for loading
+      // Show the main content
+      document.getElementById('main-container').style.display = 'flex';
+    }, 3000);
   }
 
-  // Function for changing language (basic example)
   function changeLanguage() {
-    const language = document.getElementById('language').value;
-    alert('Language changed to: ' + language);
+    var lang = document.getElementById("language").value;
+    if (lang === "en") {
+      document.getElementById("about-heading").innerText = "About SKYLINE";
+      document.getElementById("about-text").innerText = "SKYLINE is designed to provide fast and reliable emergency services for people in need. Whether it's finding a hospital, locating a shelter, or sending an SOS alert, our platform ensures help is just a click away.";
+      document.getElementById("contact-heading").innerText = "Emergency Hotlines";
+      document.getElementById("contact-text").innerText = "For immediate help, please contact the following:";
+      document.getElementById("hospital-link").innerText = "🏥 Hospital";
+      document.getElementById("shelter-link").innerText = "🏠 Shelter";
+      document.getElementById("food-link").innerText = "🍲 Food Supply";
+      document.getElementById("sos-link").innerText = "🚨 SOS Alert";
+      document.getElementById("map-link").innerText = "🗺️ Map";
+      document.getElementById("about-link").innerText = "ℹ️ About";
+      document.getElementById("contact-link").innerText = "📞 Contact";
+    }
+    // Add language cases for "vi", "es", "fr", "de" as needed.
   }
 </script>
 
